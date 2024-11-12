@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Middleware\RedirectIfNotParmittedMultiple;
-use App\Models\Language;
-use App\Models\Setting;
-use App\Models\User;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\File;
+use Jackiedo\DotenvEditor\Facades\DotenvEditor;
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Storage;
-use Inertia\Inertia;
-use Jackiedo\DotenvEditor\Facades\DotenvEditor;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Artisan;
+use App\Models\User;
+use App\Models\Setting;
+use App\Models\Language;
+use App\Http\Middleware\RedirectIfNotParmittedMultiple;
 
 class SettingsController extends Controller {
     public function __construct(){
@@ -152,7 +152,7 @@ class SettingsController extends Controller {
             'MAIL_FROM_ADDRESS' => ['nullable', 'email'],
             'MAIL_FROM_NAME' => ['nullable'],
         ]);
-        $this->setEnvVariables($mailVariables);
+        $this->setEnvVariables(data: $mailVariables);
         return Redirect::back()->with('success', 'SMTP configuration updated!');
     }
 

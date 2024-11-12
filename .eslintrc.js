@@ -27,5 +27,9 @@ module.exports = {
         },
       },
     ],
+    'vue/html-indent': 'off',
+    'vue/first-attribute-linebreak': 'off',
+    'vue/no-v-html': 'off',
+    'vue/html-closing-bracket-newline': 'off',
   },
 }

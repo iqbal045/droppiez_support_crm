@@ -3,7 +3,8 @@
         <!-- Start Hero -->
 
         <Head title="Home" />
-        <section class="relative z-10 overflow-hidden bg-primary pt-[120px] pb-[100px] md:pt-[130px] lg:pt-[160px]">
+        <section
+            class="relative z-10 overflow-hidden bg-custom-dark pt-[120px] pb-[100px] md:pt-[130px] lg:pt-[160px] uppercase">
             <div class="container">
                 <div class="-mx-4 flex flex-wrap items-center">
                     <div class="w-full px-4">
@@ -25,21 +26,21 @@
         </section><!--end section-->
 
         <!-- Start -->
-        <section class="pt-20 pb-10 lg:pt-[120px] lg:pb-20 bg-gray-50">
+        <section class="pt-20 pb-10 lg:pt-[120px] lg:pb-20 bg-gray-50 uppercase">
             <div class="container">
                 <form class="card mt-2 p-4 rounded shadow-xl overflow-hidden" enctype="multipart/form-data"
                     @submit.prevent="store">
                     <div class="px-5 pt-8">
                         <div class="flex flex-wrap">
                             <text-input v-model="form.first_name" :error="form.errors.last_name"
-                                class="pr-6 pb-5 md:col-span-6 lg:w-1/2" :label="__('First name')" />
+                                class="lg:pr-6 pb-5 md:col-span-6 w-full lg:w-1/2" :label="__('First name')" />
                             <text-input v-model="form.last_name" :error="form.errors.last_name"
-                                class="pr-6 pb-5 md:col-span-6 lg:w-1/2" :label="__('Last name')" />
+                                class="lg:pr-6 pb-5 md:col-span-6 w-full lg:w-1/2" :label="__('Last name')" />
                             <text-input v-model="form.email" :error="form.errors.email"
-                                class="pr-6 pb-5 md:col-span-6 lg:w-1/2" :label="__('Email Address')" />
+                                class="lg:pr-6 pb-5 md:col-span-6 w-full lg:w-1/2" :label="__('Email Address')" />
 
                             <select-input v-model="form.type_id" :error="form.errors.type_id"
-                                class="pr-6 pb-5 md:col-span-6 lg:w-1/2" :label="__('Ticket type')">
+                                class="lg:pr-6 pb-5 md:col-span-6 w-full lg:w-1/2" :label="__('Ticket type')">
                                 <option :value="null">{{ __('Select a type') }}</option>
                                 <option v-for="type in types" :key="type.id" :value="type.id">{{ type.name }}</option>
                             </select-input>
@@ -106,7 +107,7 @@
                     </div>
                     <div class="px-4 py-4 border-t border-gray-100 flex justify-end">
                         <loading-button :loading="form.processing"
-                            class="rounded-lg bg-primary py-3 px-6 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-80"
+                            class="bg-custom-dark py-2 px-6 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-80"
                             type="submit">
                             {{ __('Submit') }}
                         </loading-button>

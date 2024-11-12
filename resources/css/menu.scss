@@ -246,7 +246,7 @@ nav{
         @apply text-dark hover:text-primary hover:opacity-100;
     }
     .signUpBtn {
-        @apply bg-primary text-white hover:bg-dark hover:text-white;
+        @apply bg-custom-dark text-white;
     }
     nav{
         li{

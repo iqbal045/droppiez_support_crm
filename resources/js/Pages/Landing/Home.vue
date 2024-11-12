@@ -4,19 +4,23 @@
 
         <Head :title="__('Home')" />
         <!-- ====== Hero Section Start -->
-        <div id="home" class="relative overflow-hidden bg-primary pt-[120px] md:pt-[130px] lg:pt-[160px]">
+        <div id="home" class="relative overflow-hidden pt-[120px] md:pt-[130px] lg:pt-[160px] uppercase">
             <div class="container">
                 <div class="-mx-4 flex flex-wrap items-center">
                     <div class="w-full px-4">
-                        <div class="hero-content wow fadeInUp mx-auto max-w-[780px] text-center" data-wow-delay=".2s">
-                            <h1 class="mb-8 text-3xl font-bold leading-snug text-white sm:text-4xl sm:leading-snug md:text-[45px] md:leading-snug"
+                        <div class="hero-content wow fadeInUp ml-auto max-w-[780px] text-right" data-wow-delay=".2s">
+                            <h1 class="lg:mt-10 mb-8 text-3xl font-bold leading-snug text-white sm:text-4xl sm:leading-snug md:text-[45px] md:leading-snug"
                                 v-html="sanitizeHtml(html.sections[0].title)" />
-                            <p class="mx-auto mb-10 max-w-[600px] text-base text-[#e4e4e4] sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed"
+                            <p class="ml-auto mb-10 max-w-[600px] text-base text-[#e4e4e4] sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed"
                                 v-html="sanitizeHtml(html.sections[0].details)" />
-                            <ul class="mb-10 flex flex-wrap items-center justify-center gap-6">
+                            <ul class="mb-10 flex flex-wrap items-right justify-end gap-6">
                                 <li v-for="(button, bi) in html.sections[0].buttons" :key="bi">
+                                    <!-- <Link :href="button.link"
+                                        class="inline-flex items-center justify-center bg-white py-4 px-6 text-center text-base font-medium text-dark transition duration-300 ease-in-out hover:text-primary hover:shadow-lg sm:px-10">
+                                    {{ button.text }}
+                                    </Link> -->
                                     <Link :href="button.link"
-                                        class="inline-flex items-center justify-center rounded-lg bg-white py-4 px-6 text-center text-base font-medium text-dark transition duration-300 ease-in-out hover:text-primary hover:shadow-lg sm:px-10">
+                                        class="inline-flex items-center justify-center bg-transparent border border-white py-2 px-6 text-center text-base font-medium text-white transition duration-300 ease-in-out hover:bg-white hover:text-black hover:shadow-lg sm:px-10">
                                     {{ button.text }}
                                     </Link>
                                 </li>
@@ -24,7 +28,7 @@
                         </div>
                     </div>
 
-                    <div class="w-full px-4">
+                    <!-- <div class="w-full px-4">
                         <div class="wow fadeInUp relative z-10 mx-auto max-w-[845px]" data-wow-delay=".25s">
                             <div class="mt-16">
                                 <img v-if="html.sections[0].image" :src="html.sections[0].image" alt=""
@@ -39,15 +43,15 @@
                                 <img src="/images/svg/dot-2.svg" alt="dot" />
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
-        <section class="pt-20 pb-8 lg:pt-[120px] lg:pb-[70px]">
+        <section class="pt-20 pb-8 lg:pt-[120px] lg:pb-[70px] uppercase">
             <div class="container">
                 <div class="-mx-4 flex flex-wrap">
                     <div class="w-full px-4">
-                        <div class="mb-12 max-w-[620px] lg:mb-20">
+                        <div class="mb-12 max-w-[650px] lg:mb-20">
                             <span class="mb-2 block text-lg font-semibold text-primary">
                                 {{ html.sections[1].tagline }}
                             </span>
@@ -64,9 +68,9 @@
                         class="w-full px-4 md:w-1/2 lg:w-1/4">
                         <div class="wow fadeInUp group mb-12 bg-white" data-wow-delay=".1s">
                             <div
-                                class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl bg-primary">
+                                class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center bg-primary">
                                 <span
-                                    class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-2xl bg-primary bg-opacity-20 duration-300 group-hover:rotate-45" />
+                                    class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center bg-custom-dark bg-opacity-20 duration-300 group-hover:rotate-45" />
                                 <icon :name="feature.icon" class="w-8 h-8 fill-white" />
                             </div>
                             <h4 class="mb-3 text-xl font-bold text-dark">
@@ -80,7 +84,7 @@
         </section>
         <!-- Start -->
         <section v-if="html.sections[2].enable_ticket_section" id="ticketSubmit"
-            class="relative md:py-24 py-16 bg-gray-50 dark:bg-slate-800">
+            class="relative md:py-24 py-16 bg-default-gray dark:bg-slate-800 uppercase">
             <div class="container">
                 <form class="card mt-2 p-4 rounded shadow-xl overflow-hidden" enctype="multipart/form-data"
                     @submit.prevent="store">
@@ -92,11 +96,13 @@
                         <div class="mx-auto mb-6 mt-1 w-24 border-b" />
                         <div class="flex flex-wrap">
                             <text-input v-model="form.first_name" :error="form.errors.last_name"
-                                class="pr-6 rtl:pr-0 rtl:pl-6 pb-5 md:col-span-6 lg:w-1/2" :label="__('First name')" />
+                                class="lg:pr-6 rtl:pr-0 rtl:pl-6 pb-5 md:col-span-6 w-full lg:w-1/2"
+                                :label="__('First name')" />
                             <text-input v-model="form.last_name" :error="form.errors.last_name"
-                                class="pr-6 rtl:pr-0 rtl:pl-6 pb-5 md:col-span-6 lg:w-1/2" :label="__('Last name')" />
+                                class="lg:pr-6 rtl:pr-0 rtl:pl-6 pb-5 md:col-span-6 w-full lg:w-1/2"
+                                :label="__('Last name')" />
                             <text-input v-model="form.email" :error="form.errors.email"
-                                class="pr-6 rtl:pr-0 rtl:pl-6 pb-5 md:col-span-6 lg:w-1/2"
+                                class="lg:pr-6 rtl:pr-0 rtl:pl-6 pb-5 md:col-span-6 w-full lg:w-1/2"
                                 :label="__('Email Address')" />
 
 
@@ -108,7 +114,8 @@
                             </select-input> -->
 
                             <select-input v-model="form.type_id" :error="form.errors.type_id"
-                                class="pr-6 rtl:pr-0 rtl:pl-6 pb-5 md:col-span-6 lg:w-1/2" :label="__('Ticket type')">
+                                class="lg:pr-6 rtl:pr-0 rtl:pl-6 pb-5 md:col-span-6 w-full lg:w-1/2"
+                                :label="__('Ticket type')">
                                 <option :value="null">{{ __('Select a type') }}</option>
                                 <option v-for="type in types" :key="type.id" :value="type.id">{{ type.name }}</option>
                             </select-input>
@@ -169,7 +176,7 @@
                     </div>
                     <div class="px-4 py-4 border-t border-gray-100 flex justify-end">
                         <loading-button :loading="form.processing"
-                            class="rounded-lg bg-primary py-3 px-6 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-80"
+                            class="bg-custom-dark py-2 px-6 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-80"
                             type="submit">
                             Submit
                         </loading-button>
@@ -289,3 +296,51 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+#home {
+    background-image: url('/landing/images/hero_img.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 55vh;
+    /* Default height for small screens */
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Overlay color */
+    z-index: 1;
+}
+
+#home>* {
+    position: relative;
+    z-index: 2;
+}
+
+@media (min-width: 768px) {
+    #home {
+        height: 70vh;
+        /* Height for medium screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    #home {
+        height: 90vh;
+        /* Height for large screens */
+    }
+}
+
+@media (min-width: 1280px) {
+    #home {
+        height: 100vh;
+        /* Height for extra large screens */
+    }
+}
+</style>
