@@ -1,0 +1,75 @@
+# Laravel specific
+/vendor
+/node_modules
+/public/storage
+/public/hot
+/storage/*.key
+/.env
+/.env.backup
+/.env.*.backup
+/.env.local
+/.env.development
+/.env.testing
+/.env.production
+/.env.example
+/.phpunit.result.cache
+Homestead.yaml
+Homestead.json
+/.vagrant
+
+# Laravel Mix
+/public/css/app.css
+/public/css/app.css.map
+/public/js/app.js
+/public/js/app.js.map
+/public/mix-manifest.json
+
+# IDE specific
+/.idea
+/.vscode
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Composer
+/vendor
+/composer.lock
+
+# NPM
+/node_modules
+/package-lock.json
+/yarn.lock
+
+# Logs
+/storage/logs/*.log
+
+# Cache
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/bootstrap/cache/*.php
+
+# Coverage reports
+/coverage
+/coverage.json
+
+# PHPUnit
+.phpunit.result.cache
+
+# Sentry
+.sentryclirc
+
+# Ignored files
+*.log
+*.swp
+*.swo
+*.bak
+*.tmp
+*.temp
+*.old
+*.orig
+*.save
+
+
+/storage/dotenv-editor/backups/*
