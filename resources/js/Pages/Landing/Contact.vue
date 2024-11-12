@@ -9,7 +9,7 @@
                 <div class="-mx-4 flex flex-wrap items-center">
                     <div class="w-full px-4">
                         <div class="text-center">
-                            <h1 class="text-4xl font-semibold text-white">{{ __(data.title) }}</h1>
+                            <h1 class="lg:text-[32px] font-semibold text-white">{{ __(data.title) }}</h1>
                         </div>
                     </div>
                 </div><!--end grid-->
@@ -26,21 +26,20 @@
         <!-- End Hero -->
 
         <!-- ====== Contact Section Start -->
-        <section class="relative z-10 overflow-hidden bg-default-gray py-20 lg:py-[120px] uppercase">
+        <section class="relative z-10 overflow-hidden bg-default-gray py-20 lg:py-[120px]">
             <div class="container mx-auto">
                 <div class="-mx-4 flex flex-wrap lg:justify-between">
                     <div class="w-full px-4 lg:w-1/2 xl:w-6/12">
                         <div class="mb-12 max-w-[570px] lg:mb-0">
-                            <h2
-                                class="text-dark mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
+                            <h2 class="text-custom-dark mb-6 text-[32px] font-bold uppercase">
                                 {{ page.content_text }}
                             </h2>
-                            <p class="text-body-color mb-9 text-base leading-relaxed">
+                            <p class="text-custom-dark mb-9 text-sm leading-relaxed">
                                 {{ page.content_details }}
                             </p>
                             <div class="mb-8 flex w-full max-w-[370px]">
                                 <div
-                                    class="bg-primary text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-opacity-5 sm:h-[70px] sm:max-w-[70px]">
+                                    class="bg-primary text-custom-dark mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden bg-opacity-5 sm:h-[70px] sm:max-w-[70px]">
                                     <icon name="home" class="w-8 h-8 fill-white" />
                                 </div>
                                 <div class="w-full">
@@ -50,11 +49,11 @@
                             </div>
                             <div class="mb-8 flex w-full max-w-[370px]">
                                 <div
-                                    class="bg-primary text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-opacity-5 sm:h-[70px] sm:max-w-[70px]">
+                                    class="bg-primary text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden bg-opacity-5 sm:h-[70px] sm:max-w-[70px]">
                                     <icon name="phone" class="w-8 h-8 fill-white" />
                                 </div>
                                 <div class="w-full">
-                                    <h4 class="text-dark mb-1 text-xl font-bold">{{ 'Phone Number' }}</h4>
+                                    <h4 class="text-custom-dark mb-1 text-[18px] font-bold">{{ 'Phone Number' }}</h4>
                                     <p class="text-body-color text-base">
                                         <a :href="'tel:' + page.phone">{{ page.phone
                                             }}</a>
@@ -63,11 +62,11 @@
                             </div>
                             <div class="mb-8 flex w-full max-w-[370px]">
                                 <div
-                                    class="bg-primary text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-opacity-5 sm:h-[70px] sm:max-w-[70px]">
+                                    class="bg-primary text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden bg-opacity-5 sm:h-[70px] sm:max-w-[70px]">
                                     <icon name="email" class="w-8 h-8 fill-white" />
                                 </div>
                                 <div class="w-full">
-                                    <h4 class="text-dark mb-1 text-xl font-bold">{{ 'Email Address' }}</h4>
+                                    <h4 class="text-dark mb-1 text-[18px] font-bold">{{ 'Email Address' }}</h4>
                                     <p class="text-body-color text-base">
                                         <a :href="'mailto:' + page.email">{{ page.email
                                             }}</a>

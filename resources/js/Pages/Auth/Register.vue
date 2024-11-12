@@ -1,41 +1,66 @@
 <template>
-    <Head title="Login" />
-  <div class="p-6 min-h-screen flex justify-center items-center light">
-    <div class="w-full max-w-xl	">
-        <Link :href="route('home')"><logo class="block w-48 mx-auto fill-white" /></Link>
-      <form class="mt-8 bg-white dark:bg-slate-900 border border-gray-100 rounded-lg shadow-xl overflow-hidden" @submit.prevent="login">
-        <div class="px-10 py-12">
-          <h2 class="text-center font-bold text-xl">{{ __('Registration') }}</h2>
-          <div class="mx-auto mt-2 mb-6 w-24 border-b" />
-            <flash-messages />
-            <div class="flex flex-wrap p-3">
-                <text-input v-model="form.first_name" :error="form.errors.first_name" class="pb-8 pr-6 w-full lg:w-1/2" :label="__('First name')" type="text" autofocus autocapitalize="off" :is_required="true" required />
-                <text-input v-model="form.last_name" :error="form.errors.last_name" class="pb-8 pr-6 w-full lg:w-1/2" :label="__('Last name')" type="text" autofocus autocapitalize="off" :is_required="true" required />
-                <text-input v-model="form.email" :error="form.errors.email" class="pb-8 pr-6 w-full lg:w-1/2" :label="__('Email')" type="email" autofocus autocapitalize="off" :is_required="true" required />
-                <text-input v-model="form.phone" :error="form.errors.phone" class="pb-8 pr-6 w-full lg:w-1/2" :label="__('Phone')" type="text" autofocus autocapitalize="off" />
-                <text-input v-model="form.country_id" :error="form.errors.country_id" class="pb-8 pr-6 w-full lg:w-1/2" :label="__('Country')" type="text" autofocus autocapitalize="off" />
-                <text-input v-model="form.city" :error="form.errors.city" class="pb-8 pr-6 w-full lg:w-1/2" :label="__('City')" type="text" autofocus autocapitalize="off" />
-                <text-input v-model="form.address" :error="form.errors.address" class="pb-8 pr-6 w-full" :label="__('Address')" type="text" autofocus autocapitalize="off" />
-                <text-input v-model="form.password" :error="form.errors.password" class="pb-8 pr-6 w-full lg:w-1/2" :label="__('Password')" type="password" :is_required="true" required />
-                <text-input v-model="form.confirm_password" :error="form.errors.confirm_password" class="pb-8 pr-6 w-full lg:w-1/2" :label="__('Confirm Password')" type="password" :is_required="true" required />
-                <div class="flex justify-center items-center py-3 w-full">
-                    <vue-recaptcha v-if="site_key" :sitekey="site_key"
-                                   size="normal"
-                                   theme="light"
-                                   @verify="recaptchaVerified"
-                                   @expire="recaptchaExpired"
-                                   @fail="recaptchaFailed"
-                                   @error="recaptchaError"
-                                   ref="vueRecaptcha">
-                    </vue-recaptcha>
-                </div>
-                <loading-button :disabled="disable_button && site_key" :loading="form.processing" class="ml-auto btn-indigo w-full items-center justify-center" type="submit" :class="{'opacity-50 cursor-not-allowed': disable_button && site_key}">{{ __('Submit') }}</loading-button>
+    <div>
+
+        <Head title="Login" />
+        <div class="p-6 min-h-screen flex justify-center items-center bg-[#f5f5f5]">
+            <div class="w-full max-w-xl	">
+                <form
+                    class="mt-8 bg-white dark:bg-slate-900 border border-gray-100 rounded-lg shadow-xl overflow-hidden"
+                    @submit.prevent="login">
+                    <div class="px-10 py-12">
+                        <Link :href="route('home')">
+                        <logo class="block w-48 mx-auto fill-white" />
+                        </Link>
+                        <h2 class="font-black text-[20px] mt-6">{{ __('Registration') }}</h2>
+                        <!-- <div class="mx-auto mt-2 mb-6 w-24 border-b" /> -->
+                        <flash-messages />
+                        <div class="flex flex-wrap p-3 mt-3">
+                            <text-input v-model="form.first_name" :error="form.errors.first_name"
+                                class="pb-4 pr-6 w-full lg:w-1/2" :label="__('First name')" type="text" autofocus
+                                autocapitalize="off" :is_required="true" required />
+                            <text-input v-model="form.last_name" :error="form.errors.last_name"
+                                class="pb-4 pr-6 w-full lg:w-1/2" :label="__('Last name')" type="text" autofocus
+                                autocapitalize="off" :is_required="true" required />
+                            <text-input v-model="form.email" :error="form.errors.email"
+                                class="pb-4 pr-6 w-full lg:w-1/1" :label="__('Email')" type="email" autofocus
+                                autocapitalize="off" :is_required="true" required />
+                            <!-- <text-input v-model="form.phone" :error="form.errors.phone"
+                                class="pb-4 pr-6 w-full lg:w-1/2" :label="__('Phone')" type="text" autofocus
+                                autocapitalize="off" />
+                            <text-input v-model="form.country_id" :error="form.errors.country_id"
+                                class="pb-4 pr-6 w-full lg:w-1/2" :label="__('Country')" type="text" autofocus
+                                autocapitalize="off" />
+                            <text-input v-model="form.city" :error="form.errors.city" class="pb-4 pr-6 w-full lg:w-1/2"
+                                :label="__('City')" type="text" autofocus autocapitalize="off" />
+                            <text-input v-model="form.address" :error="form.errors.address" class="pb-4 pr-6 w-full"
+                                :label="__('Address')" type="text" autofocus autocapitalize="off" /> -->
+                            <text-input v-model="form.password" :error="form.errors.password"
+                                class="pb-4 pr-6 w-full lg:w-1/2" :label="__('Password')" type="password"
+                                :is_required="true" required />
+                            <text-input v-model="form.confirm_password" :error="form.errors.confirm_password"
+                                class="pb-4 pr-6 w-full lg:w-1/2" :label="__('Confirm Password')" type="password"
+                                :is_required="true" required />
+                            <div class="flex justify-center items-center pt-3 w-full">
+                                <vue-recaptcha v-if="site_key" ref="vueRecaptcha" :sitekey="site_key" size="normal"
+                                    theme="light" @verify="recaptchaVerified" @expire="recaptchaExpired"
+                                    @fail="recaptchaFailed" @error="recaptchaError" />
+                            </div>
+                            <loading-button :disabled="disable_button && site_key" :loading="form.processing"
+                                class="ml-auto btn-indigo bg-custom-dark hover:bg-custom-dark w-full items-center justify-center"
+                                type="submit" :class="{ 'opacity-50 cursor-not-allowed': disable_button && site_key }">
+                                {{ __('Submit')
+                                }}
+                            </loading-button>
+                        </div>
+                        <div class="mt-4 flex justify-center text-[14px]">
+                            Already have an account?
+                            <Link class="ml-2" :href="route('login')">{{ __('Login') }}</Link>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="mt-4 flex justify-center">Already have an account? <Link class="ml-2" :href="route('login')">{{ __('Login') }}</Link></div>
         </div>
-      </form>
     </div>
-  </div>
 </template>
 
 <script>
@@ -44,66 +69,66 @@ import TextInput from '@/Shared/TextInput'
 import LoadingButton from '@/Shared/LoadingButton'
 import FlashMessages from '@/Shared/FlashMessages'
 import { Head, Link } from '@inertiajs/vue3'
-import vueRecaptcha from "vue3-recaptcha2";
+import vueRecaptcha from 'vue3-recaptcha2'
 
 export default {
-  metaInfo: { title: 'Login' },
-  components: {
-      vueRecaptcha,
-    LoadingButton,
-    Logo,
-    TextInput,
-      Head,
-      Link,
-      FlashMessages,
-  },
+    metaInfo: { title: 'Login' },
+    components: {
+        vueRecaptcha,
+        LoadingButton,
+        Logo,
+        TextInput,
+        Head,
+        Link,
+        FlashMessages,
+    },
     props: {
         is_demo: Number,
         site_key: String,
     },
-  data() {
-    return {
-        disable_button: true,
-      form: this.$inertia.form({
-        first_name: '',
-        last_name: '',
-          email: '',
-          phone: '',
-          city: '',
-          country_id: '',
-        address: '',
-        password: '',
-        confirm_password: '',
-      }),
-    }
-  },
-  methods: {
-      recaptchaVerified(response) {
-          this.disable_button = false
-          console.log(response)
-      },
-      recaptchaExpired() {
-          this.$refs.vueRecaptcha.reset();
-      },
-      recaptchaFailed() {
-      },
-      recaptchaError(reason) {
-          console.log(reason)
-      },
-      login() {
-          if(this.form.password !== this.form.confirm_password){
-              alert('Your password is not matched correctly.')
-              return
-          }
-          this.form.post(this.route('register.store'))
-      },
-      autofillLogin(e, role){
-          e.preventDefault()
-          const roleEmails = { 'admin': 'john.due.helo@mail.com', 'manager': 'robert.slaughter@mail.com', 'customer' : 'mmarks@example.com'}
-          this.form.email = roleEmails[role]
-          this.form.password = 'secret'
-          this.login();
-      }
-  }
+    data() {
+        return {
+            disable_button: true,
+            form: this.$inertia.form({
+                first_name: '',
+                last_name: '',
+                email: '',
+                phone: '',
+                city: '',
+                country_id: '',
+                address: '',
+                password: '',
+                confirm_password: '',
+            }),
+        }
+    },
+    methods: {
+        recaptchaVerified(response) {
+            this.disable_button = false
+            console.log(response)
+        },
+        recaptchaExpired() {
+            this.$refs.vueRecaptcha.reset()
+        },
+        recaptchaFailed() {
+        },
+        recaptchaError(reason) {
+            console.log(reason)
+        },
+        login() {
+            if (this.form.password !== this.form.confirm_password) {
+                alert('Your password is not matched correctly.')
+                return
+            }
+            this.form.post(this.route('register.store'))
+        },
+        autofillLogin(e, role) {
+            e.preventDefault()
+            const roleEmails = { 'admin': 'john.due.helo@mail.com', 'manager': 'robert.slaughter@mail.com', 'customer': 'mmarks@example.com' }
+            this.form.email = roleEmails[role]
+            this.form.password = 'secret'
+            this.login()
+        },
+    },
 }
 </script>

@@ -9,9 +9,9 @@
                 <div class="-mx-4 flex flex-wrap items-center">
                     <div class="w-full px-4">
                         <div class="hero-content wow fadeInUp ml-auto max-w-[780px] text-right" data-wow-delay=".2s">
-                            <h1 class="lg:mt-10 mb-8 text-3xl font-bold leading-snug text-white sm:text-4xl sm:leading-snug md:text-[45px] md:leading-snug"
+                            <h1 class="lg:mt-10 mb-8 text-3xl font-bold leading-snug text-white sm:text-4xl sm:leading-snug md:text-[32px] md:leading-snug"
                                 v-html="sanitizeHtml(html.sections[0].title)" />
-                            <p class="ml-auto mb-10 max-w-[600px] text-base text-[#e4e4e4] sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed"
+                            <p class="ml-auto mb-10 max-w-[600px] text-sm text-[#e4e4e4] sm:text-lg sm:leading-relaxed md:text-[14px] md:leading-relaxed"
                                 v-html="sanitizeHtml(html.sections[0].details)" />
                             <ul class="mb-10 flex flex-wrap items-right justify-end gap-6">
                                 <li v-for="(button, bi) in html.sections[0].buttons" :key="bi">
@@ -47,15 +47,15 @@
                 </div>
             </div>
         </div>
-        <section class="pt-20 pb-8 lg:pt-[120px] lg:pb-[70px] uppercase">
+        <section class="pt-20 pb-8 lg:pt-[120px] lg:pb-[70px]">
             <div class="container">
                 <div class="-mx-4 flex flex-wrap">
                     <div class="w-full px-4">
                         <div class="mb-12 max-w-[650px] lg:mb-20">
-                            <span class="mb-2 block text-lg font-semibold text-primary">
+                            <span class="mb-2 block lg:text-[14px] font-semibold text-black uppercase">
                                 {{ html.sections[1].tagline }}
                             </span>
-                            <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[42px]">
+                            <h2 class="mb-4 lg:text-[28px] font-bold text-dark sm:text-4xl md:text-[42px] uppercase">
                                 {{ html.sections[1].title }}
                             </h2>
                             <p class="text-lg leading-relaxed text-body-color sm:text-xl sm:leading-relaxed"
@@ -73,10 +73,10 @@
                                     class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center bg-custom-dark bg-opacity-20 duration-300 group-hover:rotate-45" />
                                 <icon :name="feature.icon" class="w-8 h-8 fill-white" />
                             </div>
-                            <h4 class="mb-3 text-xl font-bold text-dark">
+                            <h4 class="mb-3 lg:text-[18px] font-bold text-dark uppercase">
                                 {{ feature.title }}
                             </h4>
-                            <p class="mb-8 text-body-color lg:mb-11" v-html="feature.details" />
+                            <p class="mb-8 lg:text-[14px] text-body-color lg:mb-11" v-html="feature.details" />
                         </div>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                             </div>
                             <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree
                                 with the <a :href="route('terms_service')" target="_blank"
-                                    class="text-blue-600 hover:underline dark:text-blue-500">terms and
+                                    class="underline dark:text-blue-500">terms and
                                     conditions</a></label>
                         </div>
                     </div>

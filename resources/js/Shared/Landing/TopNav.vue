@@ -1,7 +1,7 @@
 <template>
     <!-- New Navigation -->
     <!-- ====== Navbar Section Start -->
-    <nav id="topnav" class="ud-header absolute top-0 left-0 z-40 flex w-full items-center bg-transparent uppercase">
+    <nav id="topnav" class="ud-header absolute top-0 left-0 z-40 flex w-full items-center bg-transparent">
         <div id="dropdown" />
         <div class="container">
             <div class="relative -mx-4 flex items-center justify-between">
@@ -25,42 +25,42 @@
                                 <li class="group relative" :class="{ 'active': active_menu === 'home' }"
                                     @click="active_menu = 'home'">
                                     <Link :href="route('home')"
-                                        class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70">
+                                        class="ud-menu-scroll mx-8 flex py-2 text-sm text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70">
                                     {{ __('Home') }}
                                     </Link>
                                 </li>
                                 <li v-if="!!enable_option && enable_option.service" class="group relative"
                                     :class="{ 'active': active_menu === 'services' }" @click="active_menu = 'services'">
                                     <Link :href="route('services')"
-                                        class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70">
+                                        class="ud-menu-scroll mx-8 flex py-2 text-sm text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70">
                                     {{ __('Services') }}
                                     </Link>
                                 </li>
                                 <li v-if="!!enable_option && enable_option.kb" class="group relative"
                                     :class="{ 'active': active_menu === 'kb' }" @click="active_menu = 'kb'">
                                     <Link :href="route('kb')"
-                                        class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70">
+                                        class="ud-menu-scroll mx-8 flex py-2 text-sm text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70">
                                     {{ __('Knowledge') }}
                                     </Link>
                                 </li>
                                 <li v-if="!!enable_option && enable_option.faq" class="group relative"
                                     :class="{ 'active': active_menu === 'faq' }" @click="active_menu = 'faq'">
                                     <Link :href="route('faq')"
-                                        class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70">
+                                        class="ud-menu-scroll mx-8 flex py-2 text-sm text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70">
                                     {{ __('FAQs') }}
                                     </Link>
                                 </li>
                                 <li v-if="!!enable_option && enable_option.blog" class="group relative"
                                     :class="{ 'active': active_menu === 'blog' }" @click="active_menu = 'blog'">
                                     <Link :href="route('blog')"
-                                        class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70">
+                                        class="ud-menu-scroll mx-8 flex py-2 text-sm text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70">
                                     {{ __('Blog') }}
                                     </Link>
                                 </li>
                                 <li v-if="!!enable_option && enable_option.contact" class="group relative"
                                     :class="{ 'active': active_menu === 'contact' }" @click="active_menu = 'contact'">
                                     <Link :href="route('contact')"
-                                        class="ud-menu-scroll mx-8 flex py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70">
+                                        class="ud-menu-scroll mx-8 flex py-2 text-sm text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70">
                                     {{ __('Contact') }}
                                     </Link>
                                 </li>
