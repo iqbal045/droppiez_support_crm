@@ -68,7 +68,7 @@
                         class="w-full px-4 md:w-1/2 lg:w-1/4">
                         <div class="wow fadeInUp group mb-12 bg-white" data-wow-delay=".1s">
                             <div
-                                class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center bg-primary">
+                                class="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center bg-custom-dark">
                                 <span
                                     class="absolute top-0 left-0 z-[-1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center bg-custom-dark bg-opacity-20 duration-300 group-hover:rotate-45" />
                                 <icon :name="feature.icon" class="w-8 h-8 fill-white" />
